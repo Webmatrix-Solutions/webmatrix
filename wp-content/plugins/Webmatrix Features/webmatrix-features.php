@@ -192,7 +192,239 @@ function change_footer() {
     }
 }
 
-add_action('wp_footer', 'change_footer');  
+add_action('wp_footer', 'change_footer');
+
+/**
+ * Function for Sliders CPT
+ */
+
+    if(get_option('cpt-sliders') == '1') {
+        
+		function webmatrix_sliders_cpt() {
+			$labels = array(
+				'name'                  => _x( 'Sliders', 'Post type general name', 'recipe' ),
+				'singular_name'         => _x( 'sliders', 'Post type singular name', 'sliders' ),
+				'menu_name'             => _x( 'Sliders', 'Admin Menu text', 'sliders' ),
+				'name_admin_bar'        => _x( 'sliders', 'Add New on Toolbar', 'sliders' ),
+				'add_new'               => __( 'Add New', 'sliders' ),
+				'add_new_item'          => __( 'Add New sliders', 'sliders' ),
+				'new_item'              => __( 'New sliders', 'sliders' ),
+				'edit_item'             => __( 'Edit sliders', 'sliders' ),
+				'view_item'             => __( 'View sliders', 'sliders' ),
+				'all_items'             => __( 'All Sliders', 'sliders' ),
+				'search_items'          => __( 'Search Sliders', 'sliders' ),
+				'parent_item_colon'     => __( 'Parent Sliders:', 'sliders' ),
+				'not_found'             => __( 'No Sliders found.', 'sliders' ),
+				'not_found_in_trash'    => __( 'No Sliders found in Trash.', 'sliders' ),
+				'featured_image'        => _x( 'sliders Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'sliders' ),
+				'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'sliders' ),
+				'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'sliders' ),
+				'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'sliders' ),
+				'archives'              => _x( 'sliders archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'sliders' ),
+				'insert_into_item'      => _x( 'Insert into sliders', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'sliders' ),
+				'uploaded_to_this_item' => _x( 'Uploaded to this sliders', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'sliders' ),
+				'filter_items_list'     => _x( 'Filter Sliders list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'sliders' ),
+				'items_list_navigation' => _x( 'Sliders list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'sliders' ),
+				'items_list'            => _x( 'Sliders list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'sliders' ),
+			);     
+			$args = array(
+				'labels'             => $labels,
+				'description'        => 'sliders custom post type.',
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'rewrite'            => array( 'slug' => 'sliders' ),
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'menu_position'      => 20,
+				'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+				'taxonomies'         => array( 'category', 'post_tag' ),
+				'show_in_rest'       => true
+			);
+			 
+			register_post_type( 'sliders', $args );
+		}
+
+		add_action( 'init', 'webmatrix_sliders_cpt' );		
+		
+    }
+
+/**
+ * Function for Services CPT
+ */
+
+if(get_option('cpt-services') == '1') {
+        
+	function webmatrix_services_cpt() {
+		$labels = array(
+			'name'                  => _x( 'services', 'Post type general name', 'services' ),
+			'singular_name'         => _x( 'Services', 'Post type singular name', 'services' ),
+			'menu_name'             => _x( 'Services', 'Admin Menu text', 'services' ),
+			'name_admin_bar'        => _x( 'services', 'Add New on Toolbar', 'services' ),
+			'add_new'               => __( 'Add New', 'services' ),
+			'add_new_item'          => __( 'Add New services', 'services' ),
+			'new_item'              => __( 'New services', 'services' ),
+			'edit_item'             => __( 'Edit services', 'services' ),
+			'view_item'             => __( 'View services', 'services' ),
+			'all_items'             => __( 'All services', 'services' ),
+			'search_items'          => __( 'Search services', 'services' ),
+			'parent_item_colon'     => __( 'Parent services:', 'services' ),
+			'not_found'             => __( 'No services found.', 'services' ),
+			'not_found_in_trash'    => __( 'No services found in Trash.', 'services' ),
+			'featured_image'        => _x( 'services Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'services' ),
+			'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'services' ),
+			'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'services' ),
+			'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'services' ),
+			'archives'              => _x( 'services archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'services' ),
+			'insert_into_item'      => _x( 'Insert into services', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'services' ),
+			'uploaded_to_this_item' => _x( 'Uploaded to this services', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'services' ),
+			'filter_items_list'     => _x( 'Filter services list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'services' ),
+			'items_list_navigation' => _x( 'services list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'services' ),
+			'items_list'            => _x( 'services list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'services' ),
+		);     
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'services custom post type.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'services' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 20,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array( 'category', 'post_tag' ),
+			'show_in_rest'       => true
+		);
+		 
+		register_post_type( 'services', $args );
+	}
+
+	add_action( 'init', 'webmatrix_services_cpt' );		
+	
+}
+
+/**
+ * Function for Gallery CPT
+ */
+
+if(get_option('cpt-gallery') == '1') {
+        
+	function webmatrix_gallery_cpt() {
+		$labels = array(
+			'name'                  => _x( 'gallery', 'Post type general name', 'gallery' ),
+			'singular_name'         => _x( 'Gallery', 'Post type singular name', 'gallery' ),
+			'menu_name'             => _x( 'Gallery', 'Admin Menu text', 'gallery' ),
+			'name_admin_bar'        => _x( 'Gallery', 'Add New on Toolbar', 'gallery' ),
+			'add_new'               => __( 'Add New', 'gallery' ),
+			'add_new_item'          => __( 'Add New gallery', 'gallery' ),
+			'new_item'              => __( 'New gallery', 'gallery' ),
+			'edit_item'             => __( 'Edit gallery', 'gallery' ),
+			'view_item'             => __( 'View gallery', 'gallery' ),
+			'all_items'             => __( 'All gallery', 'gallery' ),
+			'search_items'          => __( 'Search gallery', 'gallery' ),
+			'parent_item_colon'     => __( 'Parent gallery:', 'gallery' ),
+			'not_found'             => __( 'No gallery found.', 'gallery' ),
+			'not_found_in_trash'    => __( 'No gallery found in Trash.', 'gallery' ),
+			'featured_image'        => _x( 'gallery Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'gallery' ),
+			'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'gallery' ),
+			'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'gallery' ),
+			'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'gallery' ),
+			'archives'              => _x( 'gallery archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'gallery' ),
+			'insert_into_item'      => _x( 'Insert into gallery', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'gallery' ),
+			'uploaded_to_this_item' => _x( 'Uploaded to this gallery', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'gallery' ),
+			'filter_items_list'     => _x( 'Filter gallery list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'gallery' ),
+			'items_list_navigation' => _x( 'gallery list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'gallery' ),
+			'items_list'            => _x( 'gallery list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'gallery' ),
+		);     
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'gallery custom post type.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'gallery' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 20,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array( 'category', 'post_tag' ),
+			'show_in_rest'       => true
+		);
+		 
+		register_post_type( 'gallery', $args );
+	}
+
+	add_action( 'init', 'webmatrix_gallery_cpt' );		
+	
+}
+
+/**
+ * Function for Testimonials CPT
+ */
+
+if(get_option('cpt-testimonials') == '1') {
+        
+	function webmatrix_testimonials_cpt() {
+		$labels = array(
+			'name'                  => _x( 'testimonials', 'Post type general name', 'testimonials' ),
+			'singular_name'         => _x( 'Testimonials', 'Post type singular name', 'testimonials' ),
+			'menu_name'             => _x( 'Testimonials', 'Admin Menu text', 'testimonials' ),
+			'name_admin_bar'        => _x( 'Testimonials', 'Add New on Toolbar', 'testimonials' ),
+			'add_new'               => __( 'Add New', 'testimonials' ),
+			'add_new_item'          => __( 'Add New testimonials', 'testimonials' ),
+			'new_item'              => __( 'New testimonials', 'testimonials' ),
+			'edit_item'             => __( 'Edit testimonials', 'testimonials' ),
+			'view_item'             => __( 'View testimonials', 'testimonials' ),
+			'all_items'             => __( 'All testimonials', 'testimonials' ),
+			'search_items'          => __( 'Search testimonials', 'testimonials' ),
+			'parent_item_colon'     => __( 'Parent testimonials:', 'testimonials' ),
+			'not_found'             => __( 'No testimonials found.', 'testimonials' ),
+			'not_found_in_trash'    => __( 'No testimonials found in Trash.', 'testimonials' ),
+			'featured_image'        => _x( 'testimonials Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'testimonials' ),
+			'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'testimonials' ),
+			'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'testimonials' ),
+			'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'testimonials' ),
+			'archives'              => _x( 'testimonials archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'testimonials' ),
+			'insert_into_item'      => _x( 'Insert into testimonials', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'testimonials' ),
+			'uploaded_to_this_item' => _x( 'Uploaded to this testimonials', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'testimonials' ),
+			'filter_items_list'     => _x( 'Filter testimonials list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'testimonials' ),
+			'items_list_navigation' => _x( 'testimonials list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'testimonials' ),
+			'items_list'            => _x( 'testimonials list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'testimonials' ),
+		);     
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'testimonials custom post type.',
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'testimonials' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 20,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array( 'category', 'post_tag' ),
+			'show_in_rest'       => true
+		);
+		 
+		register_post_type( 'testimonials', $args );
+	}
+
+	add_action( 'init', 'webmatrix_testimonials_cpt' );		
+	
+}
 
 
 

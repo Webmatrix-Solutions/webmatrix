@@ -42,7 +42,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab-1">Customize WP Login Page</a></li>
                 <li><a href="#tab-2">Custom Scripts Settings</a></li>
-                <li><a href="#tab-3">Active Custom Post Types</a></li>
+                <li><a href="#tab-3">Default Custom Post Types</a></li>
             </ul>
 
             <div class="container">
@@ -175,7 +175,59 @@
 
             <!-- Third Tab  -->
             <div id="tab-3" class="tab-pane">
-               <h1>Hello I am Tab 3</h1>
+                <form method="POST" action="options.php">
+                    <?php settings_fields('webmatrix-cpt-settings'); ?>
+                    <table class="form-table">
+                        <!-- CPT for Sliders -->
+                        <tr valign="top">
+                            <th scope="row"><?php _e( 'Sliders or Banners Section', 'webmatrix-cpt-settings' ); ?></th>
+                            <td>
+                                <label for="cpt-sliders">
+                                    <input type="checkbox" id="cpt-sliders" class="cpt-sliders" name="cpt-sliders"
+                                        value="1" <?php checked('1', get_option('cpt-sliders') ); ?> /> <?php _e('Activate Sliders CPT', 'webmatrix-cpt-settings')?>
+                                    <p class="description"><?php  _e('By Clicking this checkbox, sliders or banners post type will be activated', 'webmatrix-cpt-settings'); ?></p>
+                                </label>
+                            </td>
+                        </tr> 
+                        <!-- CPT for Services -->
+                        <tr valign="top">
+                            <th scope="row"><?php _e( 'Services Section', 'webmatrix-cpt-settings' ); ?></th>
+                            <td>
+                                <label for="cpt-services">
+                                    <input type="checkbox" id="cpt-services" class="cpt-services" name="cpt-services"
+                                        value="1" <?php checked('1', get_option('cpt-services') ); ?> /> <?php _e('Activate Services CPT', 'webmatrix-cpt-settings')?>
+                                    <p class="description"><?php  _e('By Clicking this checkbox, services post type will be activated', 'webmatrix-cpt-settings'); ?></p>
+                                </label>
+                            </td>
+                        </tr> 
+                        <!-- CPT for Gallery -->
+                        <tr valign="top">
+                            <th scope="row"><?php _e( 'Gallery Section', 'webmatrix-cpt-settings' ); ?></th>
+                            <td>
+                                <label for="cpt-gallery">
+                                    <input type="checkbox" id="cpt-gallery" class="cpt-gallery" name="cpt-gallery"
+                                        value="1" <?php checked('1', get_option('cpt-gallery') ); ?> /> <?php _e('Activate Gallery CPT', 'webmatrix-cpt-settings')?>
+                                    <p class="description"><?php  _e('By Clicking this checkbox, gallery post type will be activated', 'webmatrix-cpt-settings'); ?></p>
+                                </label>
+                            </td>
+                        </tr> 
+                        <!-- CPT for Testimonials -->
+                        <tr valign="top">
+                            <th scope="row"><?php _e( 'Testimonials Section', 'webmatrix-cpt-settings' ); ?></th>
+                            <td>
+                                <label for="cpt-testimonials">
+                                    <input type="checkbox" id="cpt-testimonials" class="cpt-testimonials" name="cpt-testimonials"
+                                        value="1" <?php checked('1', get_option('cpt-testimonials') ); ?> /> <?php _e('Activate Testimonials CPT', 'webmatrix-cpt-settings')?>
+                                    <p class="description"><?php  _e('By Clicking this checkbox, testimonials post type will be activated', 'webmatrix-cpt-settings'); ?></p>
+                                </label>
+                            </td>
+                        </tr> 
+                    </table>
+                        <!-- Submit button for form -->
+                        <p class="submit">
+                            <input type="submit" class="button button-primary" name="Submit" value="<?php esc_html_e('Save Settings', 'webmatrix-cpt-settings'); ?>"     />
+                        </p>
+                </form>
             </div>
 
 
@@ -189,15 +241,32 @@
 
     function register_custom_settings() {
         
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'activate_template', 'Custom_Magik_sanitisation');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'upload_img', 'esc_url_raw');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'logo_img_url', 'esc_url_raw' );
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'custom_bg_color', 'Custom_Magik_BG_sanitisation');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'custom_css', 'Custom_Css_sanitisation');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'hide_lang_switcher', 'Custom_Magik_sanitisation');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-settings', 'hide_pwd_reset_link', 'Custom_Magik_sanitisation');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-global-header-footer-settings', 'hfs-insert-header', 'trim');
+        // Regsitering Default Template Settings //
         register_setting('webmatrix-global-header-footer-settings', 'hfs-insert-footer', 'trim');
+        // Regsitering Banners CPT //
+        register_setting('webmatrix-cpt-settings', 'cpt-sliders', 'Custom_Magik_sanitisation');
+        // Regsitering Services CPT //
+         register_setting('webmatrix-cpt-settings', 'cpt-services', 'Custom_Magik_sanitisation');
+        // Regsitering Gallery CPT //
+        register_setting('webmatrix-cpt-settings', 'cpt-gallery', 'Custom_Magik_sanitisation');
+        // Regsitering Testimonials CPT //
+        register_setting('webmatrix-cpt-settings', 'cpt-testimonials', 'Custom_Magik_sanitisation');
 
     }
     
