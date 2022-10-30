@@ -1,6 +1,5 @@
 <?php 
 /**
- * Plugin Name: Webmatrix Features
  * 
  * @package webmatrix
  */
@@ -151,7 +150,7 @@
                       <div class="postbox" style="background: none;">
                          <div class="inside">
                             <form name="dofollow" method="post" action="options.php" >
-                                <?php settings_fields( 'webmatrix-settings' ); ?>
+                                <?php settings_fields( 'webmatrix-global-header-footer-settings' ); ?>
                                 
                                 <!-- Header Script Code -->
                                 <h3 class="hfs-header-labels" for="hfs-insert-header"><?php esc_html_e( 'Global Top Script', 'webmatrix-settings' ); ?></h3>
@@ -189,15 +188,60 @@
      */
 
     function register_custom_settings() {
-        //Template Settings//
-        register_setting( 'webmatrix-settings', 'activate_template', $args:array );
-        //Upload Logo Settings//
-        register_setting( 'webmatrix-settings', 'upload_img', $args:array );
-        //Set Logo Image URL//
         
+        register_setting('webmatrix-settings', 'activate_template', 'Custom_Magik_sanitisation');
+        register_setting('webmatrix-settings', 'upload_img', 'esc_url_raw');
+        register_setting('webmatrix-settings', 'logo_img_url', 'esc_url_raw' );
+        register_setting('webmatrix-settings', 'custom_bg_color', 'Custom_Magik_BG_sanitisation');
+        register_setting('webmatrix-settings', 'custom_css', 'Custom_Css_sanitisation');
+        register_setting('webmatrix-settings', 'hide_lang_switcher', 'Custom_Magik_sanitisation');
+        register_setting('webmatrix-settings', 'hide_pwd_reset_link', 'Custom_Magik_sanitisation');
+        register_setting('webmatrix-global-header-footer-settings', 'hfs-insert-header', 'trim');
+        register_setting('webmatrix-global-header-footer-settings', 'hfs-insert-footer', 'trim');
 
-    }    
+    }
+    
+    add_action('init', 'register_custom_settings');
 
+    /**
+     * Input Fields Santizations for the above settings
+     */
+
+    /**
+     * Field Sanitisation for Input boxes
+     */
+    function Custom_Magik_sanitisation($input)
+    {   
+        $input = sanitize_text_field($input);
+        return $input;
+    }
+
+    /**
+     * Field sanitisation for Custom BG Color
+     */
+
+    function Custom_Magik_BG_sanitisation($color)
+    {
+        if ('' === $color )
+        return '';
+
+        // 3 or 6 hex digits or empty string 
+        if (preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color) )
+        return $color;
+
+        return null;
+    }
+
+    /**
+     * Field sanitisation for Custom CSS
+     */
+
+    function Custom_Css_sanitisation($input)
+    {
+        $css_sanitisation_allowed_html = array();
+        $input = wp_kses($input, $css_sanitisation_allowed_html);
+        return $input;
+    }
 
     /**
      *  Registering CSS & JS scripts for plugin settings page  
