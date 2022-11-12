@@ -1,14 +1,22 @@
+##This file will ignore the given files and git won't track it.
+
+#This Ignores everything in the core directory
 /*
 
+#This will be tracked by git
 !wp-content
 
+#This will be tracked by git
 !.gitignore
-
+#This wont be tracked by git
 wp-content/languages/
+#This wont be tracked by git
 wp-content/upgrade/
+#This wont be tracked by git
 wp-content/uploads/
+#This wont be tracked by git
 wp-content/plugins/query-monitor
-
+#This wont be tracked by git
 wp-content/themes/understrap/images
-
+#This wont be tracked by git
 wp-content/themes/understrap/html
