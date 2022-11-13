@@ -106,7 +106,7 @@ $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
                             <i class="fa-solid fa-phone-flip"></i>
                             <ul>
                                 <li>Hotline</li>
-                                <li><a href="tel:+000(123)4568">+000(123)4568</a></li>
+                                <li><a href="tel:<?php echo get_option( 'headerContactNumber' )?>"><?php echo get_option( 'headerContactNumber' )?></a></li>
                             </ul>
                         </div>
                         <button type="button" class="top-get-a-quote" data-toggle="modal" data-target="#exampleModalCenter">Get a Quote&nbsp<i class="fa fa-angle-double-right"></i></button>

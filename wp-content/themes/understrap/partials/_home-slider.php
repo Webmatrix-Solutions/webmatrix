@@ -17,8 +17,8 @@
                             <div class="col-xl-6">
                                 <div class="home-banner-left-content">
                                     <div class="home-nanner-content-wrapper">
-                                        <div class="banner-subtitle" data-animation="fadeInUp" data-delay=".5s" style="background: url('
-                                        <?php echo get_template_directory_uri() . '/images/banner-ring-image.png' ?>'); background-repeat: no-repeat; background-size: contain; background-position: left center;">IT Solutions & Services</div>
+                                    <div class="banner-subtitle" data-animation="fadeInUp" data-delay=".5s" style="background: url(
+                                            <?php echo get_template_directory_uri() . '/images/banner-ring-image.png' ?>); background-repeat: no-repeat; background-size: contain; background-position: left center;">IT Solutions & Services</div>
                                         <h3 data-animation="fadeInUp" data-delay="1s">We Provide</h3>
                                         <h2 data-animation="fadeInUp" data-delay="1s">Professional <br> IT Solutions</h2>
                                         <div class="home-banner-button">

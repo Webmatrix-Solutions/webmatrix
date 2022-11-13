@@ -11,7 +11,7 @@
         <div class="row m-0">
             <div class="col-xl-12">
                 <div class="header-top-content-wrapper home-three-top-header">
-                    <span>CHRISTMAS OFFER !!! Upto 30% off on Website Design & Development</span>
+                    <span><?php echo get_option('headerTopText'); ?></span>
                 </div>
             </div>
         </div>
