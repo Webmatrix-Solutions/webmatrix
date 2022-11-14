@@ -109,7 +109,7 @@ $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
                                 <li><a href="tel:<?php echo get_option( 'headerContactNumber' )?>"><?php echo get_option( 'headerContactNumber' )?></a></li>
                             </ul>
                         </div>
-                        <button type="button" class="top-get-a-quote" data-toggle="modal" data-target="#exampleModalCenter">Get a Quote&nbsp<i class="fa fa-angle-double-right"></i></button>
+                        <button type="button" class="top-get-a-quote" data-toggle="modal" data-target="#exampleModalCenter"><?php echo get_option( 'headerQuoteBtn' )?><i class="fa fa-angle-double-right"></i></button>
                         <ul class="header-buttons-wrapper wrd-list-style">
                             <li class="mobile-menu-trigger"><span></span><span></span><span></span></li>
                         </ul>

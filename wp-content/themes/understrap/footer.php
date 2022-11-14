@@ -27,8 +27,7 @@
                         <img src="assets/images/site-logo/header-logo.png" alt="">
                     </div>
                     <div class="footer-wrapper">
-                        <p>Sit amet consectetur adipiscing elit sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus com
-                            modo viverra maecenas accumsan</p>
+                        <p><?php echo get_option( 'footerAboutUs' ); ?></p>
                     </div>
                     <div class="footer-media-icon">
                         <ul>
@@ -71,11 +70,11 @@
 
             <div class="col-xl-3 col-md-6 col-sm-12">
                 <div class="footer-content">
-                    <h5>Contuct Info</h5>
+                    <h5><?php echo get_option( 'footerCiMainText' ); ?></h5>
                     <ul>
-                        <li><i class="flaticon-map"></i><a href="javascript:void(0)">55 Main Street, New York</a></li>
-                        <li><i class="flaticon-email"></i><a href="mailto:info.wrapdiv.com">info.wrapdiv.com</a></li>
-                        <li><i class="fa-solid fa-phone-flip"></i><a href="tel:+000(123)45688">+000(123)45688</a></li>
+                        <li><i class="flaticon-map"></i><a href="javascript:void(0)"><?php echo get_option( 'footerCiAddress' ); ?></a></li>
+                        <li><i class="flaticon-email"></i><a href="mailto:<?php echo get_option( 'footerCiEmail' ); ?>"><?php echo get_option( 'footerCiEmail' ); ?></a></li>
+                        <li><i class="fa-solid fa-phone-flip"></i><a href="tel:<?php echo get_option( 'footerCiPhoneNumber' ); ?>"><?php echo get_option( 'footerCiPhoneNumber' ); ?></a></li>
                     </ul>
                     <div class="footer-mail">
                         <form>
@@ -96,7 +95,7 @@
                 <div class="col-xl-6">
                     <div class="footer-bottom-content">
                         <div class="copyright">
-                            <p>Copyright &copy; 2022 Webmatrix Solutions.All Right Reservwd</p>
+                            <p><?php echo get_option( 'footerCopyrightText' ); ?></p>
                         </div>
                     </div>
                 </div>
