@@ -61,14 +61,6 @@ function add_nav_menus() {
 add_action('init', 'add_nav_menus');
 
 /**
- * Register Custom Navigation Walker
- */
-function register_navwalker(){
-	include_once('/inc/class-wp-bootstrap-navwalker.php');
-}
-add_action( 'after_setup_theme', 'register_navwalker' );
-
-/**
  * Adding Theme Options Panel Menu
  */
 
