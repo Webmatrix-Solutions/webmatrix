@@ -22,3 +22,5 @@ wp-content/themes/understrap/images
 wp-content/themes/understrap/html
 #This wont be tracked by git
 wp-content/plugins/advanced-custom-fields
+#This wont be tracked by git
+wp-content/plugins/menu-icons
