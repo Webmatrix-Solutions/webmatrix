@@ -49,6 +49,26 @@ function webmatrix_theme_core_functions() {
 add_action('after_setup_theme', 'webmatrix_theme_core_functions');
 
 /**
+ * Adding Support for Registering Navigation Menus
+ */
+
+function add_nav_menus() {
+    register_nav_menus( array(
+        'header_menu' => 'Header Menu',
+        'footer_menu' => 'Footer Menu',
+    ));
+}
+add_action('init', 'add_nav_menus');
+
+/**
+ * Register Custom Navigation Walker
+ */
+function register_navwalker(){
+	include_once('/inc/class-wp-bootstrap-navwalker.php');
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+
+/**
  * Adding Theme Options Panel Menu
  */
 

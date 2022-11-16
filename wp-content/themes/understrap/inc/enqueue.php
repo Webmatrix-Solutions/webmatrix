@@ -15,6 +15,15 @@ function adding_main_styles() {
     wp_register_style( 'main-google-fonts', '//fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap', array(), null);
     wp_enqueue_style('main-google-fonts');
 
+    //<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    /**
+    * Enqueue Google Fonts
+    */
+    wp_register_style( 'font-awesome-icons', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css', array(), null);
+    wp_enqueue_style('font-awesome-icons');
+
+
     /**
      * Adding Font-awesome
      */

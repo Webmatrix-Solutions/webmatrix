@@ -36,63 +36,30 @@ $logo = wp_get_attachment_image_src( $custom_logo_id, 'full' );
                             <div class="header-navigation-area">
                                 <nav class="main-navigation">
                                     <div class="main-menu-container">
-                                        <ul id="main-menu" class="menu">
-                                            <li class="menu-item-has-children current-menu-ancestor current-menu-item">
-                                                <a href="index.html" class="active">Web Design</i></a>
-                                            </li>
-
-                                            <li class="menu-item-has-children">
-                                                <a href="javascript:void(0)">Website Development <i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="javascript:void(0)">Basic Website</a></li>
-                                                    <li><a href="javascript:void(0)">Wordpress Development</a></li>
-                                                    <li><a href="javascript:void(0)">Custom Application Development</a></li>
-                                                    <li><a href="javascript:void(0)">Content Management System</a></li>
-                                                    <li><a href="javascript:void(0)">Ecommerce Development</a></li>
-                                                    <li><a href="javascript:void(0)">API Development</a></li>
-                                                    <li><a href="javascript:void(0)">Application Maintenance</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="menu-item-has-children">
-                                                <a href="javascript:void(0)">Digital Marketing <i class="fa fa-angle-down"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="javascript:void(0)">Pay Per Click</a></li>
-                                                    <li><a href="javascript:void(0)">Google Ads</a></li>
-                                                    <li><a href="javascript:void(0)">Lead Generation</a></li>
-                                                    <li><a href="javascript:void(0)">Social Media Optimization</a></li>
-                                                    <li><a href="javascript:void(0)">Search Engine Optimization</a></li>
-                                                    <li><a href="javascript:void(0)">Search Engine Marketing</a></li>
-                                                    <li><a href="javascript:void(0)">Local SEO</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li class="menu-item-has-children">
-                                                <a href="javascript:void(0)">Packages</a>
-                                            </li>
-
-                                            <li class="menu-item-has-children">
-                                                <a href="javascript:void(0)">Know More About Us</a>
-                                            </li>
-            
-                                            <li><a href="javascript:void(0)">Reach Us</a></li>
-            
-                                            <li>
-                                                <button class="btn primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass"></i></button>
-
-                                                <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop">
-                                                    <div class="offcanvas-header">
-                                                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-                                                    </div>
-                                                    <div class="offcanvas-body">
-                                                        <form>
-                                                            <input type="search" placeholder="Search...">
-                                                            <i class="fa-solid fa-magnifying-glass"></i>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <ul id="main-menu" class="menu"> <!-- Main Menu <ul> Starts -->
+                                            
+                                            <?php
+                                                $header = array(
+                                                    'theme_location'  => 'header_menu',
+                                                    'container'       => '',
+                                                    'container_class' => '',
+                                                    'container_id'    => '', 
+                                                    'menu_class'      => 'menu',
+                                                    'menu_id'         => 'main-menu',
+                                                    'echo'            => true,
+                                                    'fallback_cb'     => '',
+                                                    'before'          => '',
+                                                    'after'           => '',
+                                                    'link_before'     => '',
+                                                    'link_after'      => '',
+                                                    'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                                                    'depth'           => 2,
+                                                    /*'walker'          => new wp_bootstrap_navwalker(),*/
+                                                );
+                                                wp_nav_menu( $header );
+                                            ?>
+                                        
+                                        </ul> <!-- Main Menu <ul> Ends -->
                                     </div>
                                 </nav>
                             </div>
