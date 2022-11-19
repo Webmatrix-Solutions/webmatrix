@@ -240,6 +240,7 @@ add_action('wp_footer', 'change_footer');
 				'has_archive'        => true,
 				'hierarchical'       => false,
 				'menu_position'      => 20,
+				'menu_icon'          => 'dashicons-images-alt2',
 				'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
 				'taxonomies'         => array( 'category', 'post_tag' ),
 				'show_in_rest'       => true
