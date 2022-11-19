@@ -24,3 +24,5 @@ wp-content/themes/understrap/html
 wp-content/plugins/advanced-custom-fields
 #This wont be tracked by git
 wp-content/plugins/menu-icons
+#This wont be tracked by git
+wp-content/plugins/duplicate-page
