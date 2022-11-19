@@ -49,6 +49,16 @@ function webmatrix_theme_core_functions() {
 add_action('after_setup_theme', 'webmatrix_theme_core_functions');
 
 /**
+ * Enables the Excerpt meta box in post type edit screen.
+ */
+function webmatrix_excerpt_support() {
+    add_post_type_support( 'webmatrix-excerpt', 'excerpt' );
+}
+
+add_action( 'init', 'webmatrix_excerpt_support' );
+
+
+/**
  * Adding Support for Registering Navigation Menus
  */
 
@@ -59,6 +69,7 @@ function add_nav_menus() {
     ));
 }
 add_action('init', 'add_nav_menus');
+
 
 /**
  * Adding Theme Options Panel Menu
@@ -315,7 +326,5 @@ add_action( 'admin_menu', 'register_theme_option_panel_menu' );
     function display_footer_copyright_callback() { ?>
         <input type="text" name="footerCopyrightText" value="<?php echo get_option( 'footerCopyrightText' ); ?>" id="footerCopyrightText" style="max-height: 200px !important; min-width: 500px !important"/>
     <?php }
-
-
 
 ?>
