@@ -216,7 +216,7 @@ add_action('wp_footer', 'change_footer');
 				'parent_item_colon'     => __( 'Parent Sliders:', 'sliders' ),
 				'not_found'             => __( 'No Sliders found.', 'sliders' ),
 				'not_found_in_trash'    => __( 'No Sliders found in Trash.', 'sliders' ),
-				'featured_image'        => _x( 'sliders Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'sliders' ),
+				'featured_image'        => _x( 'Sliders Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'sliders' ),
 				'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'sliders' ),
 				'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'sliders' ),
 				'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'sliders' ),
@@ -241,7 +241,7 @@ add_action('wp_footer', 'change_footer');
 				'hierarchical'       => false,
 				'menu_position'      => 20,
 				'menu_icon'          => 'dashicons-images-alt2',
-				'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+				'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'custom-fields', 'excerpt' ),
 				'taxonomies'         => array( 'category', 'post_tag' ),
 				'show_in_rest'       => true
 			);
